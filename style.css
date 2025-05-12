@@ -2,48 +2,52 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    background: #f4f4f4;
+    background: #f0f0f0;
 }
 header {
-    background-color: #003366;
+    background: #003366;
     color: white;
     text-align: center;
     padding: 1em;
 }
-.ads {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1em;
-    padding: 1em;
-}
-.ad {
+main.detail {
+    max-width: 800px;
+    margin: 2em auto;
     background: white;
-    padding: 1em;
+    padding: 1.5em;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.ad img {
+main.detail img {
     width: 100%;
     border-radius: 6px;
 }
-.ad h3 {
-    margin: 0.5em 0 0.2em;
+main.detail h2 {
+    margin-top: 1em;
 }
-.ad p {
+.price {
     color: green;
     font-weight: bold;
-    margin: 0.2em 0;
+    font-size: 1.4em;
 }
-.ad span {
-    color: #777;
+.desc {
+    margin: 1em 0;
 }
-.ad a {
-    display: inline-block;
-    margin-top: 0.5em;
+.seller {
+    margin-top: 2em;
+    background: #f9f9f9;
+    padding: 1em;
+    border-radius: 6px;
+}
+.buttons {
+    margin-top: 1.5em;
+}
+.buttons button {
+    margin-right: 1em;
+    padding: 0.6em 1.2em;
     background: #003366;
     color: white;
-    padding: 0.4em 1em;
+    border: none;
     border-radius: 4px;
-    text-decoration: none;
+    cursor: pointer;
 }
