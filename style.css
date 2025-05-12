@@ -1,68 +1,25 @@
 
 body {
-    font-family: sans-serif;
-    margin: 0;
-    background: #f9f9f9;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    padding: 1em;
 }
+
 header {
-    background: #cc0000;
-    color: white;
-    text-align: center;
-    padding: 1em;
-}
-.info {
-    background: #fff8e1;
-    padding: 1em;
-    text-align: center;
-    font-size: 0.95em;
-    color: #444;
-}
-.premium-ads {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5em;
-    padding: 1.5em;
-}
-.ad {
-    background: white;
-    padding: 1em;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    text-align: center;
-}
-.ad img {
-    width: 100%;
-    border-radius: 8px;
-}
-.ad h3 {
-    margin: 0.8em 0 0.4em;
-}
-.ad .price {
-    color: green;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-.ad span {
-    display: block;
-    margin-bottom: 0.5em;
-    color: #555;
-}
-.ad a {
-    display: inline-block;
     background: #003366;
     color: white;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    border-radius: 4px;
+    padding: 1em;
+    text-align: center;
 }
-.badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: red;
-    color: white;
-    padding: 0.3em 0.7em;
-    border-radius: 5px;
-    font-size: 0.85em;
+
+section {
+    background: white;
+    padding: 1em;
+    margin-top: 1em;
+    border-radius: 8px;
+}
+
+button {
+    margin-left: 1em;
+    padding: 0.3em 1em;
 }

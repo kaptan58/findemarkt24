@@ -3,41 +3,50 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mein Profil - Findemarkt24</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Mein Profil</h1>
+        <button onclick="logout()">Abmelden</button>
     </header>
-    <main>
-        <section class="userinfo">
-            <h2>Willkommen, Max Mustermann</h2>
-            <p>E-Mail: max@example.com</p>
-        </section>
-        <section class="my-ads">
-            <h3>Meine Anzeigen</h3>
-            <div class="ad">
-                <h4>2-Zimmer Wohnung in Berlin</h4>
-                <p>Preis: 1.200 €</p>
-                <div class="actions">
-                    <button>Bearbeiten</button>
-                    <button>Löschen</button>
-                </div>
-            </div>
-            <div class="ad">
-                <h4>iPhone 13 Pro</h4>
-                <p>Preis: 850 €</p>
-                <div class="actions">
-                    <button>Bearbeiten</button>
-                    <button>Löschen</button>
-                </div>
-            </div>
-        </section>
-        <div class="messages-link">
-            <a href="#">Nachrichten anzeigen</a>
-        </div>
-    </main>
+
+    <section class="profil-info">
+        <h2>Nutzerinformationen</h2>
+        <p><strong>Benutzername:</strong> <span id="username">Mustermann</span></p>
+        <p><strong>Email:</strong> <span id="email">mustermann@example.com</span></p>
+    </section>
+
+    <section class="meine-anzeigen">
+        <h2>Meine Anzeigen</h2>
+        <ul id="anzeigenListe"></ul>
+    </section>
+
+    <script>
+        const anzeigen = [
+            { title: "BMW 3er zu verkaufen", id: 1 },
+            { title: "Wohnung in Berlin", id: 2 }
+        ];
+
+        function loadAnzeigen() {
+            const liste = document.getElementById("anzeigenListe");
+            anzeigen.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item.title;
+                const btn = document.createElement("button");
+                btn.textContent = "Löschen";
+                btn.onclick = () => li.remove();
+                li.appendChild(btn);
+                liste.appendChild(li);
+            });
+        }
+
+        function logout() {
+            alert("Abgemeldet.");
+        }
+
+        window.onload = loadAnzeigen;
+    </script>
 </body>
 </html>
