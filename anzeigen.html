@@ -2,29 +2,37 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Findemarkt24 - Anzeigen</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Alle Anzeigen - Findemarkt24</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>Alle Anzeigen</h1></header>
-    <main class="listings">
-        <div class="ad-item premium">
-            <span class="badge">Acil Satılık</span>
-            <h3>iPhone 13 Pro - 256 GB</h3>
-            <p>Wie neu, mit Garantie. Schnell zugreifen!</p>
-            <span class="price">800 €</span>
-        </div>
-        <div class="ad-item">
-            <h3>Gebrauchter Schreibtisch</h3>
-            <p>Holz, guter Zustand</p>
-            <span class="price">50 €</span>
-        </div>
-        <div class="ad-item">
-            <h3>Opel Astra 2012</h3>
-            <p>Fährt gut, TÜV bis 2025</p>
-            <span class="price">3.500 €</span>
-        </div>
-    </main>
+  <header>
+    <h1>Alle Anzeigen</h1>
+  </header>
+
+  <section id="anzeigenContainer"></section>
+
+  <script>
+    fetch('get_ads.php')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('anzeigenContainer');
+        data.forEach(ad => {
+          const card = document.createElement('div');
+          card.className = 'anzeige';
+          card.innerHTML = `
+            <h2>${ad.title}</h2>
+            <p><strong>Kategorie:</strong> ${ad.category}</p>
+            <p><strong>Preis:</strong> ${ad.price} €</p>
+            <p>${ad.description}</p>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        document.getElementById('anzeigenContainer').innerHTML = '<p>Fehler beim Laden der Anzeigen.</p>';
+      });
+  </script>
 </body>
 </html>
