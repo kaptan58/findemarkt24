@@ -3,17 +3,26 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Videoanruf - Findemarkt24</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Video-Pazarlık</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #eef; padding: 2em; }
+        h1 { color: #004080; }
+        video { width: 80%; max-width: 600px; border: 2px solid #004080; border-radius: 8px; margin-top: 1em; }
+    </style>
 </head>
 <body>
-    <header><h1>Videoanruf</h1></header>
-    <main class="video-call">
-        <div class="video-sim">
-            <p>Videoanruf läuft...</p>
-            <img src="https://via.placeholder.com/300x200?text=Video+aktiv" alt="Video-Stream" />
-        </div>
-        <button onclick="alert('Anruf beendet')">Anruf beenden</button>
-    </main>
+    <h1>Video ile Pazarlık (Demo)</h1>
+    <p>Kamera ve mikrofona izin verin.</p>
+    <video id="localVideo" autoplay muted></video>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then((stream) => {
+                document.getElementById('localVideo').srcObject = stream;
+            })
+            .catch((err) => {
+                alert('Kamera veya mikrofona erişim reddedildi: ' + err.message);
+            });
+    </script>
 </body>
 </html>
