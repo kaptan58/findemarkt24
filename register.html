@@ -3,7 +3,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Findemarkt24 - Login</title>
+    <title>Findemarkt24 - Registrierung</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,12 +11,13 @@
         <h1>Findemarkt24</h1>
     </header>
     <main>
-        <form class="login-box" action="/login" method="POST">
-            <h2>Anmeldung</h2>
+        <form class="login-box" action="/register" method="POST">
+            <h2>Registrierung</h2>
             <input type="text" name="username" placeholder="Benutzername" required>
+            <input type="email" name="email" placeholder="E-Mail" required>
             <input type="password" name="password" placeholder="Passwort" required>
-            <button type="submit">Einloggen</button>
-            <p>Noch kein Konto? <a href="register.html">Registrieren</a></p>
+            <button type="submit">Registrieren</button>
+            <p>Schon registriert? <a href="index.html">Login</a></p>
         </form>
     </main>
 </body>
