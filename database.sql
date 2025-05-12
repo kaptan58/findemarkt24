@@ -1,8 +1,8 @@
-CREATE TABLE ads (
+
+CREATE TABLE messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    category VARCHAR(100),
-    description TEXT,
-    price DECIMAL(10,2),
+    sender VARCHAR(100),
+    receiver VARCHAR(100),
+    message TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
