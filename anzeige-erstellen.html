@@ -2,34 +2,44 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anzeige Erstellen - Findemarkt24</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Anzeige aufgeben - Findemarkt24</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="form-container">
-        <h2>Anzeige Erstellen</h2>
-        <form>
-            <label for="category">Kategorie</label>
-            <select id="category">
-                <option>Immobilien</option>
-                <option>Fahrzeuge</option>
-                <option>Elektronik</option>
-                <option>Dienstleistungen</option>
-            </select>
-            <label for="title">Titel</label>
-            <input type="text" id="title" placeholder="Beispiel: 2-Zimmer Wohnung in Berlin" required>
-            <label for="description">Beschreibung</label>
-            <textarea id="description" rows="5" placeholder="Details zur Anzeige..." required></textarea>
-            <label for="price">Preis (€)</label>
-            <input type="number" id="price" placeholder="z.B. 1200" required>
-            <label for="location">Ort</label>
-            <input type="text" id="location" placeholder="z.B. Berlin" required>
-            <label for="image">Foto hochladen</label>
-            <input type="file" id="image" accept="image/*">
-            <button type="submit">Anzeige aufgeben</button>
-        </form>
-    </div>
+  <header>
+    <h1>Anzeige aufgeben</h1>
+  </header>
+
+  <form action="#" method="POST" id="adForm">
+    <label for="title">Titel der Anzeige:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="category">Kategorie:</label>
+    <select id="category" name="category">
+      <option>Auto</option>
+      <option>Immobilien</option>
+      <option>Elektronik</option>
+      <option>Haushalt</option>
+    </select>
+
+    <label for="description">Beschreibung:</label>
+    <textarea id="description" name="description" rows="4" required></textarea>
+
+    <label for="price">Preis (€):</label>
+    <input type="number" id="price" name="price" required>
+
+    <label for="image">Bild hochladen:</label>
+    <input type="file" id="image" name="image">
+
+    <button type="submit">Anzeige veröffentlichen</button>
+  </form>
+
+  <script>
+    document.getElementById('adForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Anzeige wurde gespeichert! (Simulation)');
+    });
+  </script>
 </body>
 </html>
