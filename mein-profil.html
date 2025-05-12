@@ -9,18 +9,39 @@
 <body>
     <header>
         <h1>Mein Profil</h1>
-        <button onclick="logout()">Abmelden</button>
+        <nav>
+            <a href="index.html">Startseite</a> |
+            <a href="anzeige-erstellen.html">Anzeige aufgeben</a> |
+            <button onclick="logout()">Abmelden</button>
+        </nav>
     </header>
 
     <section class="profil-info">
         <h2>Nutzerinformationen</h2>
-        <p><strong>Benutzername:</strong> <span id="username">Mustermann</span></p>
-        <p><strong>Email:</strong> <span id="email">mustermann@example.com</span></p>
+        <img src="profilfoto.jpg" alt="Profilfoto" width="100" height="100">
+        <p><strong>Benutzername:</strong> <span id="username">Max Mustermann</span></p>
+        <p><strong>Email:</strong> <span id="email">max@example.com</span></p>
+        <p><strong>Telefon:</strong> <span id="telefon">+49 123 456789</span></p>
     </section>
 
     <section class="meine-anzeigen">
         <h2>Meine Anzeigen</h2>
         <ul id="anzeigenListe"></ul>
+    </section>
+
+    <section class="favoriten">
+        <h2>Favoriten</h2>
+        <ul id="favoritenListe">
+            <li>Mercedes C-Klasse</li>
+            <li>Wohnung in Köln</li>
+        </ul>
+    </section>
+
+    <section class="konto-einstellungen">
+        <h2>Konto-Einstellungen</h2>
+        <button>Passwort ändern</button>
+        <button>Benachrichtigungen verwalten</button>
+        <button style="color: red;">Konto löschen</button>
     </section>
 
     <script>
