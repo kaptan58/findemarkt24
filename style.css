@@ -1,93 +1,68 @@
 
 body {
+    font-family: sans-serif;
     margin: 0;
-    font-family: Arial, sans-serif;
+    background: #f9f9f9;
 }
-.chat-container {
-    display: flex;
-    height: 100vh;
-}
-.users {
-    width: 25%;
-    background: #003366;
+header {
+    background: #cc0000;
     color: white;
+    text-align: center;
     padding: 1em;
 }
-.users h3 {
-    margin-top: 0;
-}
-.users ul {
-    list-style: none;
-    padding: 0;
-}
-.users li {
-    padding: 0.5em;
-    border-bottom: 1px solid #555;
-    cursor: pointer;
-}
-.users li.active {
-    background: #0055aa;
-}
-.chat {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-}
-.chat header {
-    background: #eee;
+.info {
+    background: #fff8e1;
     padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
+    font-size: 0.95em;
+    color: #444;
 }
-.chat .messages {
-    flex: 1;
+.premium-ads {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5em;
+    padding: 1.5em;
+}
+.ad {
+    background: white;
     padding: 1em;
-    background: #f4f4f4;
-    overflow-y: auto;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
 }
-.msg {
-    padding: 0.5em 1em;
+.ad img {
+    width: 100%;
+    border-radius: 8px;
+}
+.ad h3 {
+    margin: 0.8em 0 0.4em;
+}
+.ad .price {
+    color: green;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.ad span {
+    display: block;
     margin-bottom: 0.5em;
-    border-radius: 20px;
-    max-width: 70%;
+    color: #555;
 }
-.from-me {
+.ad a {
+    display: inline-block;
     background: #003366;
     color: white;
-    margin-left: auto;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
 }
-.from-them {
-    background: #ddd;
-    color: #000;
-}
-.msg-form {
-    display: flex;
-    padding: 1em;
-    background: #eee;
-}
-.msg-form input {
-    flex: 1;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin-right: 0.5em;
-}
-.msg-form button {
-    background: #003366;
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
     color: white;
-    border: none;
-    padding: 0.5em 1.2em;
-    border-radius: 20px;
-}
-@media(max-width: 768px) {
-    .chat-container {
-        flex-direction: column;
-    }
-    .users {
-        width: 100%;
-    }
-    .chat {
-        width: 100%;
-    }
+    padding: 0.3em 0.7em;
+    border-radius: 5px;
+    font-size: 0.85em;
 }
