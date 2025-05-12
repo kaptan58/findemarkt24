@@ -3,6 +3,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mein Profil - Findemarkt24</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,21 +11,32 @@
     <header>
         <h1>Mein Profil</h1>
     </header>
-    <main class="profile">
-        <h2>Meine Anzeigen</h2>
-        <div class="my-ad">
-            <h3>iPhone 13 Pro</h3>
-            <p>256 GB, wie neu, silber</p>
-            <span>850 €</span><br>
-            <button>Bearbeiten</button>
-            <button>Löschen</button>
-        </div>
-        <div class="my-ad">
-            <h3>BMW 3er 2015</h3>
-            <p>Top Zustand, TÜV bis 2025</p>
-            <span>9.800 €</span><br>
-            <button>Bearbeiten</button>
-            <button>Löschen</button>
+    <main>
+        <section class="userinfo">
+            <h2>Willkommen, Max Mustermann</h2>
+            <p>E-Mail: max@example.com</p>
+        </section>
+        <section class="my-ads">
+            <h3>Meine Anzeigen</h3>
+            <div class="ad">
+                <h4>2-Zimmer Wohnung in Berlin</h4>
+                <p>Preis: 1.200 €</p>
+                <div class="actions">
+                    <button>Bearbeiten</button>
+                    <button>Löschen</button>
+                </div>
+            </div>
+            <div class="ad">
+                <h4>iPhone 13 Pro</h4>
+                <p>Preis: 850 €</p>
+                <div class="actions">
+                    <button>Bearbeiten</button>
+                    <button>Löschen</button>
+                </div>
+            </div>
+        </section>
+        <div class="messages-link">
+            <a href="#">Nachrichten anzeigen</a>
         </div>
     </main>
 </body>
