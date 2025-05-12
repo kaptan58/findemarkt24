@@ -13,19 +13,17 @@ header {
 h2 {
     margin-top: 0.5em;
 }
-.categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1em;
+.listings {
     padding: 1em;
 }
-.category {
-    background-color: white;
-    padding: 1.5em;
-    text-align: center;
-    border: 1px solid #ccc;
+.ad-item {
+    background: white;
+    padding: 1em;
+    margin-bottom: 1em;
     border-radius: 8px;
-    font-size: 1.1em;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+.ad-item span {
+    font-weight: bold;
+    color: green;
 }
