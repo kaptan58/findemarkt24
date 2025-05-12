@@ -3,31 +3,33 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Anzeige aufgeben - Findemarkt24</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anzeige Erstellen - Findemarkt24</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Findemarkt24</h1>
-    </header>
-    <main class="form-container">
-        <h2>Neue Anzeige aufgeben</h2>
+    <div class="form-container">
+        <h2>Anzeige Erstellen</h2>
         <form>
-            <input type="text" placeholder="Titel" required><br>
-            <textarea placeholder="Beschreibung" rows="4" required></textarea><br>
-            <input type="text" placeholder="Preis (€)" required><br>
-            <input type="text" placeholder="Ort" required><br>
-            <select required>
-                <option disabled selected>Kategorie wählen</option>
+            <label for="category">Kategorie</label>
+            <select id="category">
                 <option>Immobilien</option>
                 <option>Fahrzeuge</option>
                 <option>Elektronik</option>
-                <option>Jobs</option>
-                <option>Haustiere</option>
-            </select><br>
-            <input type="file" accept="image/*"><br><br>
-            <button type="submit">Anzeige erstellen</button>
+                <option>Dienstleistungen</option>
+            </select>
+            <label for="title">Titel</label>
+            <input type="text" id="title" placeholder="Beispiel: 2-Zimmer Wohnung in Berlin" required>
+            <label for="description">Beschreibung</label>
+            <textarea id="description" rows="5" placeholder="Details zur Anzeige..." required></textarea>
+            <label for="price">Preis (€)</label>
+            <input type="number" id="price" placeholder="z.B. 1200" required>
+            <label for="location">Ort</label>
+            <input type="text" id="location" placeholder="z.B. Berlin" required>
+            <label for="image">Foto hochladen</label>
+            <input type="file" id="image" accept="image/*">
+            <button type="submit">Anzeige aufgeben</button>
         </form>
-    </main>
+    </div>
 </body>
 </html>
