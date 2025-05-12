@@ -2,48 +2,22 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Video-Pazarlık - Findemarkt24</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; background: #f2f2f2; padding: 20px; }
-    video { width: 45%; margin: 10px; border: 2px solid #333; border-radius: 10px; }
-    button { padding: 10px 20px; font-size: 16px; margin: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Video Pazarlık</title>
 </head>
 <body>
-  <h1>Video-Pazarlık</h1>
-  <video id="localVideo" autoplay muted></video>
-  <video id="remoteVideo" autoplay></video>
-  <div>
-    <button onclick="startCall()">Görüşme Başlat</button>
-  </div>
+    <h2>Video Pazarlık Görüşmesi</h2>
+    <video id="localVideo" autoplay playsinline muted></video>
 
-  <script>
-    let localStream;
-    let peer;
-
-    async function startCall() {
-      localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-      document.getElementById('localVideo').srcObject = localStream;
-
-      peer = new RTCPeerConnection();
-      localStream.getTracks().forEach(track => peer.addTrack(track, localStream));
-
-      peer.ontrack = event => {
-        document.getElementById('remoteVideo').srcObject = event.streams[0];
-      };
-
-      peer.onicecandidate = e => {
-        if (e.candidate) {
-          console.log("ICE Candidate:", e.candidate);
-        }
-      };
-
-      const offer = await peer.createOffer();
-      await peer.setLocalDescription(offer);
-
-      alert("Bu sadece bir demo. Gerçek bağlantı için sinyal sunucusu gerekir.");
-    }
-  </script>
+    <script>
+        const video = document.getElementById('localVideo');
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then((stream) => {
+                video.srcObject = stream;
+            })
+            .catch((error) => {
+                alert('Kamera veya mikrofona erişim reddedildi: ' + error);
+            });
+    </script>
 </body>
 </html>
