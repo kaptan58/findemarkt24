@@ -1,8 +1,10 @@
 
-CREATE TABLE messages (
+CREATE TABLE IF NOT EXISTS ads (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    sender VARCHAR(100),
-    receiver VARCHAR(100),
-    message TEXT,
+    title VARCHAR(255) NOT NULL,
+    category VARCHAR(100),
+    description TEXT,
+    price DECIMAL(10,2),
+    is_premium BOOLEAN DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

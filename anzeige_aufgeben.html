@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Anzeige aufgeben</title>
+</head>
+<body>
+  <h2>Neue Anzeige</h2>
+  <form action="add_ad.php" method="POST">
+    Titel: <input type="text" name="title" required><br><br>
+    Kategorie: <input type="text" name="category"><br><br>
+    Beschreibung:<br><textarea name="description" rows="4" cols="50"></textarea><br><br>
+    Preis: <input type="number" step="0.01" name="price"><br><br>
+    <label><input type="checkbox" name="is_premium" value="1"> Diese Anzeige als <b style="color:red">ACIL SATILIK</b> markieren (kostenpflichtig)</label><br><br>
+    <button type="submit">Anzeige speichern</button>
+  </form>
+</body>
+</html>
