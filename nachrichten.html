@@ -3,28 +3,34 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nachrichten - Findemarkt24</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>Nachrichten</h1></header>
     <div class="chat-container">
-        <div class="contacts">
-            <h3>Kontakte</h3>
+        <aside class="users">
+            <h3>Chats</h3>
             <ul>
-                <li>Max Mustermann</li>
-                <li>Lisa Schmidt</li>
-                <li>Tom Berger</li>
+                <li class="active">Max Mustermann</li>
+                <li>Sarah Schmidt</li>
+                <li>Ali Yılmaz</li>
             </ul>
-        </div>
-        <div class="chat-box">
-            <h3>Chat mit Max Mustermann</h3>
+        </aside>
+        <main class="chat">
+            <header>
+                <h2>Max Mustermann</h2>
+                <button onclick="alert('Videoanruf gestartet')">Videoanruf</button>
+            </header>
             <div class="messages">
-                <div class="msg from">Hallo, ist der Artikel noch verfügbar?</div>
-                <div class="msg to">Ja, er ist noch zu haben!</div>
+                <div class="msg from-them">Hallo, ist die Anzeige noch verfügbar?</div>
+                <div class="msg from-me">Ja, sie ist noch da!</div>
             </div>
-            <input type="text" placeholder="Nachricht schreiben..." />
-        </div>
+            <form class="msg-form">
+                <input type="text" placeholder="Nachricht schreiben..." required>
+                <button type="submit">Senden</button>
+            </form>
+        </main>
     </div>
 </body>
 </html>

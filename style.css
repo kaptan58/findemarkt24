@@ -1,54 +1,93 @@
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
-header {
+.chat-container {
+    display: flex;
+    height: 100vh;
+}
+.users {
+    width: 25%;
     background: #003366;
     color: white;
     padding: 1em;
-    text-align: center;
 }
-main {
+.users h3 {
+    margin-top: 0;
+}
+.users ul {
+    list-style: none;
+    padding: 0;
+}
+.users li {
+    padding: 0.5em;
+    border-bottom: 1px solid #555;
+    cursor: pointer;
+}
+.users li.active {
+    background: #0055aa;
+}
+.chat {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+.chat header {
+    background: #eee;
     padding: 1em;
-    max-width: 700px;
-    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.userinfo {
-    background: #fff;
+.chat .messages {
+    flex: 1;
     padding: 1em;
-    margin-bottom: 1em;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: #f4f4f4;
+    overflow-y: auto;
 }
-.my-ads .ad {
-    background: white;
-    margin-bottom: 1em;
-    padding: 1em;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.actions {
-    margin-top: 0.5em;
-}
-.actions button {
-    margin-right: 0.5em;
+.msg {
     padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    border-radius: 20px;
+    max-width: 70%;
+}
+.from-me {
+    background: #003366;
+    color: white;
+    margin-left: auto;
+}
+.from-them {
+    background: #ddd;
+    color: #000;
+}
+.msg-form {
+    display: flex;
+    padding: 1em;
+    background: #eee;
+}
+.msg-form input {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 0.5em;
+}
+.msg-form button {
     background: #003366;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 0.5em 1.2em;
+    border-radius: 20px;
 }
-.messages-link {
-    text-align: center;
-    margin-top: 2em;
-}
-.messages-link a {
-    text-decoration: none;
-    background: #003366;
-    color: white;
-    padding: 0.7em 1.5em;
-    border-radius: 4px;
-    display: inline-block;
+@media(max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+    }
+    .users {
+        width: 100%;
+    }
+    .chat {
+        width: 100%;
+    }
 }
