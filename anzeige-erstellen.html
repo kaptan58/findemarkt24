@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Anzeige aufgeben - Findemarkt24</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Findemarkt24</h1>
+    </header>
+    <main class="form-container">
+        <h2>Neue Anzeige aufgeben</h2>
+        <form>
+            <input type="text" placeholder="Titel" required><br>
+            <textarea placeholder="Beschreibung" rows="4" required></textarea><br>
+            <input type="text" placeholder="Preis (€)" required><br>
+            <input type="text" placeholder="Ort" required><br>
+            <select required>
+                <option disabled selected>Kategorie wählen</option>
+                <option>Immobilien</option>
+                <option>Fahrzeuge</option>
+                <option>Elektronik</option>
+                <option>Jobs</option>
+                <option>Haustiere</option>
+            </select><br>
+            <input type="file" accept="image/*"><br><br>
+            <button type="submit">Anzeige erstellen</button>
+        </form>
+    </main>
+</body>
+</html>
