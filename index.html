@@ -1,41 +1,78 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Findemarkt24 Admin Panel</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    body { font-family: Arial; background: #f4f4f4; padding: 20px; }
     h1 { color: #222; }
-    .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 10px; }
-    .card p { margin: 5px 0; }
-    .actions button { margin-right: 10px; cursor: pointer; padding: 5px 10px; }
+    .form, .card { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 15px; }
+    input, select { margin: 5px 0 10px 0; width: 100%; padding: 8px; }
+    button { padding: 8px 12px; margin-top: 5px; cursor: pointer; }
+    .actions button { margin-right: 8px; }
   </style>
 </head>
 <body>
   <h1>Admin Panel</h1>
+
+  <div class="form">
+    <h3>Yeni İlan Ekle</h3>
+    <input type="text" id="title" placeholder="İlan Başlığı" />
+    <input type="text" id="user" placeholder="Kullanıcı Adı" />
+    <select id="status">
+      <option value="Bekliyor">Bekliyor</option>
+      <option value="Aktif">Aktif</option>
+      <option value="Pasif">Pasif</option>
+    </select>
+    <button onclick="ekle()">Ekle</button>
+  </div>
+
   <div id="ilanlar"></div>
 
   <script>
+    let data = [];
+
     fetch('ilanlar.json')
       .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('ilanlar');
-        data.forEach(ilan => {
-          const div = document.createElement('div');
-          div.className = 'card';
-          div.innerHTML = `
-            <p><strong>İlan:</strong> ${ilan.title}</p>
-            <p><strong>Kullanıcı:</strong> ${ilan.user}</p>
-            <p><strong>Durum:</strong> ${ilan.status}</p>
-            <div class="actions">
-              <button onclick="alert('Onaylandı: ${ilan.title}')">Onayla</button>
-              <button onclick="alert('Silindi: ${ilan.title}')">Sil</button>
-            </div>
-          `;
-          container.appendChild(div);
-        });
+      .then(json => {
+        data = json;
+        listele();
       });
+
+    function listele() {
+      const container = document.getElementById('ilanlar');
+      container.innerHTML = '';
+      data.forEach(ilan => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `
+          <p><strong>İlan:</strong> ${ilan.title}</p>
+          <p><strong>Kullanıcı:</strong> ${ilan.user}</p>
+          <p><strong>Durum:</strong> ${ilan.status}</p>
+          <div class="actions">
+            <button onclick="alert('Onaylandı: ${ilan.title}')">Onayla</button>
+            <button onclick="alert('Silindi: ${ilan.title}')">Sil</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function ekle() {
+      const title = document.getElementById('title').value;
+      const user = document.getElementById('user').value;
+      const status = document.getElementById('status').value;
+      if (title && user) {
+        data.push({ id: data.length + 1, title, user, status });
+        listele();
+        document.getElementById('title').value = '';
+        document.getElementById('user').value = '';
+        document.getElementById('status').value = 'Bekliyor';
+      } else {
+        alert("Lütfen tüm alanları doldurun.");
+      }
+    }
   </script>
 </body>
 </html>
