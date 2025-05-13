@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,48 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Panel - Findemarkt24</title>
   <style>
-    body { font-family: Arial; padding: 20px; background: #121212; color: white; }
-    .card { background: #1e1e1e; padding: 20px; margin: 10px 0; border-radius: 8px; }
-    input, button { padding: 8px; margin: 5px 0; }
+    body { font-family: Arial; background: #111; color: #fff; padding: 20px; }
+    input, button { padding: 10px; margin: 5px; font-size: 16px; }
+    input { width: 200px; }
+    .ilan { background: #222; padding: 10px; margin: 10px 0; border-radius: 5px; }
   </style>
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
 </head>
 <body>
   <h1>Admin Panel</h1>
-  <form id="addForm">
-    <input type="text" id="title" placeholder="İlan Başlığı" required />
-    <input type="text" id="user" placeholder="Kullanıcı" required />
-    <button type="submit">Ekle</button>
-  </form>
-  <div id="ilanlar"></div>
-  <script type="module">
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  <input type="text" id="title" placeholder="İlan Başlığı" />
+  <input type="text" id="user" placeholder="Kullanıcı" />
+  <button onclick="addIlan()">Ekle</button>
 
-    const supabaseUrl = 'https://jgrcnbkovfkpgfcpwfxf.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ...'; // Kısaltıldı
-    const supabase = createClient(supabaseUrl, supabaseKey);
+  <div id="ilanListesi"></div>
 
-    const form = document.getElementById("addForm");
-    const ilanlarDiv = document.getElementById("ilanlar");
+  <script>
+    const supabase = supabase.createClient('https://jgrcnbkovfkpgfcpwfxf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpncmNuYmtvdmZrcGdmY3B3ZnhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjI3NDcsImV4cCI6MjAyMDczODk0N30.xeD58z4bKo8mL2X2A9A09DBMEGokym9F68PUjMx5Pcc');
 
-    form.onsubmit = async (e) => {
-      e.preventDefault();
+    async function addIlan() {
       const title = document.getElementById("title").value;
       const user = document.getElementById("user").value;
+      if (!title || !user) return alert("Boş alan bırakmayın");
       await supabase.from("ilanlar").insert([{ title, user, status: "Bekliyor" }]);
-      form.reset();
       loadIlanlar();
-    };
+    }
 
     async function loadIlanlar() {
       const { data } = await supabase.from("ilanlar").select("*").order("id", { ascending: false });
-      ilanlarDiv.innerHTML = "";
-      data.forEach(ilan => {
-        ilanlarDiv.innerHTML += `
-          <div class="card">
-            <strong>İlan:</strong> ${ilan.title}<br/>
-            <strong>Kullanıcı:</strong> ${ilan.user}<br/>
-            <strong>Durum:</strong> ${ilan.status}<br/>
-          </div>`;
+      const liste = document.getElementById("ilanListesi");
+      liste.innerHTML = "";
+      data.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "ilan";
+        div.innerHTML = `<b>İlan:</b> ${item.title}<br><b>Kullanıcı:</b> ${item.user}<br><b>Durum:</b> ${item.status}`;
+        liste.appendChild(div);
       });
     }
 
