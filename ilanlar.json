@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "BMW 3er",
+    "user": "Ali Kaya",
+    "status": "Bekliyor"
+  },
+  {
+    "id": 2,
+    "title": "iPhone 13 Pro",
+    "user": "Zeynep Yılmaz",
+    "status": "Aktif"
+  }
+]
