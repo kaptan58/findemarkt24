@@ -11,7 +11,6 @@ export default function AdminPanel() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    // Örnek veriler - Gerçek veritabanı entegrasyonuyla değiştirilecek
     setUsers([
       { id: 1, name: 'Ali Kaya', email: 'ali@example.com', status: 'active' },
       { id: 2, name: 'Zeynep Yılmaz', email: 'zeynep@example.com', status: 'banned' },
