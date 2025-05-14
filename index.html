@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Panel - Findemarkt24</title>
+  <title>Findemarkt24 İlan Paneli</title>
   <style>
-    body { font-family: Arial; background: #111; color: #fff; padding: 20px; }
+    body { font-family: sans-serif; background: #111; color: #fff; padding: 20px; }
     input, button { padding: 10px; margin: 5px; font-size: 16px; }
-    input { width: 200px; }
     .ilan { background: #222; padding: 10px; margin: 10px 0; border-radius: 5px; }
   </style>
   <script src="https://unpkg.com/@supabase/supabase-js"></script>
 </head>
 <body>
-  <h1>Admin Panel</h1>
+  <h1>Findemarkt24 İlan Paneli</h1>
   <input type="text" id="title" placeholder="İlan Başlığı" />
   <input type="text" id="user" placeholder="Kullanıcı" />
   <button onclick="addIlan()">Ekle</button>
@@ -21,13 +20,18 @@
   <div id="ilanListesi"></div>
 
   <script>
-    const supabase = supabase.createClient('https://jgrcnbkovfkpgfcpwfxf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpncmNuYmtvdmZrcGdmY3B3ZnhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjI3NDcsImV4cCI6MjAyMDczODk0N30.xeD58z4bKo8mL2X2A9A09DBMEGokym9F68PUjMx5Pcc');
+    const supabase = supabase.createClient(
+      'https://jgrcnbkovfkpgfcpwfxf.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpncmNuYmtvdmZrcGdmY3B3ZnhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjI3NDcsImV4cCI6MjAyMDczODk0N30.xeD58z4bKo8mL2X2A9A09DBMEGokym9F68PUjMx5Pcc'
+    );
 
     async function addIlan() {
       const title = document.getElementById("title").value;
       const user = document.getElementById("user").value;
       if (!title || !user) return alert("Boş alan bırakmayın");
       await supabase.from("ilanlar").insert([{ title, user, status: "Bekliyor" }]);
+      document.getElementById("title").value = "";
+      document.getElementById("user").value = "";
       loadIlanlar();
     }
 
